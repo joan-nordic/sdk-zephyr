@@ -35,7 +35,7 @@ static struct gpio_dt_spec led = GPIO_DT_SPEC_GET_OR(DT_ALIAS(led0), gpios,
 void button_pressed(const struct device *dev, struct gpio_callback *cb,
 		    uint32_t pins)
 {
-	printk("Button pressed at %" PRIu32 "\n", k_cycle_get_32());
+	printk("| %" PRIu32 "\n", k_cycle_get_32());
 }
 
 void main(void)
@@ -83,7 +83,7 @@ void main(void)
 		}
 	}
 
-	printk("Press the button\n");
+	printk("Press the button, please\n");
 	if (led.port) {
 		while (1) {
 			/* If we have an LED, match its state to the button's. */
